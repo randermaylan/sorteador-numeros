@@ -3,6 +3,21 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
 
+    if (de >= ate) {
+        alert('Campo "Do número" deve ser menor que o campo "Até o número". Tente novamente!');
+        return;
+    }
+
+    if ((ate - de + 1) < quantidade) {
+        alert(`O intervalo entre os números deve conter pelo menos ${quantidade} valores únicos. \nAjuste os campos "Do número" e "Até o número", ou altere a quantidade.`);
+        return;
+    }
+
+    if (isNaN(quantidade) || isNaN(de) || isNaN(ate)) {
+        alert('Preencha todos os campos corretamente!');
+        return;
+    } 
+
     let sorteados = [];
     let numero;
 
